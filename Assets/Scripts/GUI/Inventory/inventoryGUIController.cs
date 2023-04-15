@@ -6,7 +6,7 @@ public class inventoryGUIController : MonoBehaviour
 {
     
 
-    [Header("Render Holders")]
+    [Header("Render     Holders")]
 
     [Tooltip("Holds the renderer for the lantern (By default, just the lantern game object)")] public GameObject lanternRenderHolder;
     [Tooltip("Holds the renderer for the lantern backgroud")] public GameObject lanternBgRenderHolder;
