@@ -40,13 +40,14 @@ public class itemController : MonoBehaviour
 
 
 
-
-
+    public GameObject invControlHolder;
+    inventoryGUIController invControl;
     roomController roomControl;
 
     // Start is called before the first frame update
     void Start()
     {
+        invControl = invControlHolder.GetComponent<inventoryGUIController>();
         roomControl = GetComponent<roomController>();
         lanternCoords = "1, 0";
     }
@@ -56,9 +57,15 @@ public class itemController : MonoBehaviour
     {
 
         if(inventory[0] == "Lantern" && Input.GetKeyDown(oneKey)){
-            currentlySelectedItem = "Lantern";
+            if(currentlySelectedItem == "Lantern"){
+                currentlySelectedItem = "";
+            }
+            else{
+                currentlySelectedItem = "Lantern";
+            }
         }
 
+     
 
         if(Input.GetKeyDown(getKey)){
             if(lanternCoords ==  roomControl.formattedCoords && inventory[0] != "Lantern" && canGetLantern){
@@ -83,11 +90,21 @@ public class itemController : MonoBehaviour
         }
 
         if(Input.GetKeyDown(inventoryKey)){
+
+            if(invControl.inventoryGameobject.activeSelf){
+                invControl.inventoryGameobject.SetActive(false);
+            }
+
+            else{
+                invControl.inventoryGameobject.SetActive(true);
+            }
            
             Debug.Log(string.Join(",", inventory));
             
             
         }
+
+
 
 
    

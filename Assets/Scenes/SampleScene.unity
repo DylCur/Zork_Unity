@@ -204,7 +204,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &519420028
@@ -357,7 +357,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &535314711
@@ -367,13 +367,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535314709}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.457, y: 2.105, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.433, y: 1.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.26778063}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1758623484}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &849409694
 GameObject:
@@ -524,7 +525,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1050230117
@@ -608,7 +609,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1195290016
@@ -660,7 +661,6 @@ MonoBehaviour:
   lantern: {fileID: 0}
   inactiveLanternSprite: {fileID: 21300000, guid: f441e81e7a353554da358844ab745af6, type: 3}
   activeLanternSprite: {fileID: 21300000, guid: 3fc63cbf81ce8de45a6fd75ec51ecc81, type: 3}
-  itemControl: {fileID: 0}
 --- !u!1 &1235219431
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +691,7 @@ Transform:
   m_Children:
   - {fileID: 1195290017}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1484427937
 GameObject:
@@ -943,7 +943,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1758623482
@@ -1012,7 +1012,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1758623484
@@ -1022,13 +1022,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758623482}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4340851, y: 2.0860322, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.004085064, y: 0.021032095, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 3.7344}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 535314711}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2009260310
 GameObject:
@@ -1071,8 +1071,6 @@ MonoBehaviour:
   canWest: 1
   xPos: 0
   yPos: 0
-  roomControl: {fileID: 0}
-  itemControl: {fileID: 0}
 --- !u!4 &2009260312
 Transform:
   m_ObjectHideFlags: 0
@@ -1103,7 +1101,6 @@ MonoBehaviour:
   potentialCurrentRoom: 
   currentRoom: 
   formattedCoords: 
-  coordsController: {fileID: 0}
 --- !u!114 &2009260314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,4 +1129,3 @@ MonoBehaviour:
   threeKey: 51
   fourKey: 52
   currentlySelectedItem: 
-  roomControl: {fileID: 0}
