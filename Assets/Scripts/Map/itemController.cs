@@ -39,7 +39,19 @@ public class itemController : MonoBehaviour
     public string currentlySelectedItem;
 
 
+    bool isHotbar;
+    
 
+    [Header("Hotbar Size & position")]
+    public Vector3 hotbarSize = new Vector3(0.5f, 0.5f, 1f);
+    public Vector3 hotbarPosition = new Vector3(-1.17f, -5.51f, 1);
+
+
+    [Header("Inventory Size & position")]
+    public Vector3 regularSize = new Vector3(1f, 1f, 1f);
+    public Vector3 intialPosition = new Vector3(-1.456403f, 1.035505f, 1);
+    
+    
 
 
 
@@ -119,16 +131,22 @@ public class itemController : MonoBehaviour
         }
 
         if(Input.GetKeyDown(inventoryKey)){
-
-            if(invControl.inventoryGameobject.activeSelf){
-                invControl.inventoryGameobject.SetActive(false);
+            if(isHotbar){
+                invControl.inventoryGameobject.transform.localScale = regularSize;
+                invControl.inventoryGameobject.transform.position = intialPosition;
+                isHotbar = false;
             }
-
+                
             else{
-                invControl.inventoryGameobject.SetActive(true);
+                invControl.inventoryGameobject.transform.localScale = hotbarSize;
+                invControl.inventoryGameobject.transform.position = hotbarPosition;
+                isHotbar = true;
             }
-           
+
             Debug.Log(string.Join(",", inventory));
+        }
+           
+
             
             
         }
@@ -137,5 +155,5 @@ public class itemController : MonoBehaviour
 
 
    
-    }
 }
+

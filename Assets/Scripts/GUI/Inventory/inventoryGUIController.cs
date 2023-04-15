@@ -49,7 +49,7 @@ public class inventoryGUIController : MonoBehaviour
     [Tooltip("The sprite for when the pickaxe is in the inventory")] public Sprite activePickaxeSprite;
 
 
-    [Header("Lantern Background Sprites")]
+   
 
 
     
@@ -61,6 +61,7 @@ public class inventoryGUIController : MonoBehaviour
     [Header("Inventory Game Objects")]
 
     [Tooltip("The whole inventory GUI")] public GameObject inventoryGameobject;
+    
 
 
 
@@ -76,7 +77,7 @@ public class inventoryGUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventoryGameobject.SetActive(false);
+        // inventoryGameobject.SetActive(false);
         itemControl = itemControlHolder.GetComponent<itemController>();
         lanternBG = lanternBgRenderHolder.GetComponent<SpriteRenderer>();
         lantern = lanternRenderHolder.GetComponent<SpriteRenderer>();
