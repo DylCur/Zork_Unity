@@ -17,7 +17,13 @@ public class roomController : MonoBehaviour
     {
         {"0, 0", "Starting room"},
         {"1, 0", "Entrance to cave"},
-        {"0, 1", "Door to house"}
+        {"1, 1", "Side of the house"},
+        {"1, 2", "Slightly ajar window"},
+        {"1, 3", "Living Room"},
+        {"2, 0", "Boulder"},
+        {"0, 1", "Door to house"},
+        {"-1, 0", "Forest"},
+        
 
     };
 

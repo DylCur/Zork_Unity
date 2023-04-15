@@ -6,10 +6,14 @@ public class inventoryGUIController : MonoBehaviour
 {
     
 
-    [Header("Render     Holders")]
+    [Header("Render Holders")]
 
     [Tooltip("Holds the renderer for the lantern (By default, just the lantern game object)")] public GameObject lanternRenderHolder;
     [Tooltip("Holds the renderer for the lantern backgroud")] public GameObject lanternBgRenderHolder;
+
+    [Tooltip("Holds the renderer for the pickaxe (By default, just the pickaxe game object)")] public GameObject pickaxeRenderHolder;
+    [Tooltip("Holds the renderer for the pickaxe backgroud")] public GameObject pickaxeBgRenderHolder;
+
 
 
 
@@ -21,23 +25,39 @@ public class inventoryGUIController : MonoBehaviour
 
 
 
-    [Header("Lantern Sprite Renderers")]
+   
 
-    [Tooltip("The renderer of the lantern (Set in the start method)")]public SpriteRenderer lantern;
-    [Tooltip("The renderer of the lantern's background (Set in the start method)")] public SpriteRenderer lanternBG;
+    [HideInInspector] [Tooltip("The renderer of the lantern (Set in the start method)")]public SpriteRenderer lantern;
+    [HideInInspector] [Tooltip("The renderer of the lantern's background (Set in the start method)")] public SpriteRenderer lanternBG;
+
+
+  
+
+    [HideInInspector] [Tooltip("The renderer of the Pickaxe (Set in the start method)")]public SpriteRenderer pickaxe;
+    [HideInInspector] [Tooltip("The renderer of the Pickaxe's background (Set in the start method)")] public SpriteRenderer pickaxeBG;
+
+    
 
     [Header("Lantern Sprites")]
 
     [Tooltip("The sprite for when the lantern is not in the inventory")] public Sprite inactiveLanternSprite;
     [Tooltip("The sprite for when the lantern is in the inventory")] public Sprite activeLanternSprite;
 
+    [Header("Pickaxe Sprites")]
+    
+    [Tooltip("The sprite for when the pickaxe is not in the inventory")] public Sprite inactivePickaxeSprite;
+    [Tooltip("The sprite for when the pickaxe is in the inventory")] public Sprite activePickaxeSprite;
+
 
     [Header("Lantern Background Sprites")]
 
-    public Sprite deselectedLanternBG;
-    public Sprite selectedLanternBG;    
+
+    
+    public Sprite deselectedBG;
+    public Sprite selectedBG;    
 
 
+   
     [Header("Inventory Game Objects")]
 
     [Tooltip("The whole inventory GUI")] public GameObject inventoryGameobject;
@@ -60,6 +80,8 @@ public class inventoryGUIController : MonoBehaviour
         itemControl = itemControlHolder.GetComponent<itemController>();
         lanternBG = lanternBgRenderHolder.GetComponent<SpriteRenderer>();
         lantern = lanternRenderHolder.GetComponent<SpriteRenderer>();
+        pickaxeBG = pickaxeBgRenderHolder.GetComponent<SpriteRenderer>();
+        pickaxe = pickaxeRenderHolder.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -85,12 +107,36 @@ public class inventoryGUIController : MonoBehaviour
         
 
         if(itemControl.currentlySelectedItem == "Lantern"){
-            lanternBG.sprite = selectedLanternBG;
+            lanternBG.sprite = selectedBG;
         }
 
         else{
-            lanternBG.sprite = deselectedLanternBG;
+            lanternBG.sprite = deselectedBG;
         }
+
+        // Pickaxe
+
+        if(itemControl.hasPickaxe){
+
+            pickaxe.sprite = activePickaxeSprite;
+
+        }
+
+        else if(!itemControl.hasPickaxe){
+
+            pickaxe.sprite = inactivePickaxeSprite;
+
+        }
+        
+
+        if(itemControl.currentlySelectedItem == "Pickaxe"){
+            pickaxeBG.sprite = selectedBG;
+        }
+
+        else{
+            pickaxeBG.sprite = deselectedBG;
+        }
+
 
     }
 

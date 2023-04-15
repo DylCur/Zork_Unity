@@ -5,20 +5,23 @@ using System.Linq;
 
 public class itemController : MonoBehaviour
 {
-    // Possible items are "Lantern", "Sword", "Steak", "Knife"
+    // Possible items are "Lantern", "Pickaxe", "Sword", "Steak", "Knife", 
 
     [Header("Inventory Things")]
-    public string[] inventory = new string[4];
+    public string[] inventory = new string[5];
 
 
     [Header("Coords for items")]
     public string lanternCoords;
+    public string pickaxeCoords;
 
 
     [Header("Item Bools")]
 
     public bool canGetLantern;
     public bool hasLantern;
+    public bool canGetPickaxe;
+    public bool hasPickaxe;
 
     [Header("Keycodes")]
 
@@ -50,6 +53,8 @@ public class itemController : MonoBehaviour
         invControl = invControlHolder.GetComponent<inventoryGUIController>();
         roomControl = GetComponent<roomController>();
         lanternCoords = "1, 0";
+        pickaxeCoords = "1, 3";
+        
     }
 
     // Update is called once per frame
@@ -65,6 +70,15 @@ public class itemController : MonoBehaviour
             }
         }
 
+        if(inventory[1] == "Pickaxe" && Input.GetKeyDown(twoKey)){
+            if(currentlySelectedItem == "Pickaxe"){
+                currentlySelectedItem = "";
+            }
+            else{
+                currentlySelectedItem = "Pickaxe";
+            }
+        }
+
      
 
         if(Input.GetKeyDown(getKey)){
@@ -73,6 +87,13 @@ public class itemController : MonoBehaviour
                 inventory[0] = "Lantern";
                 canGetLantern = false;
                 hasLantern = true;
+            }
+
+            if(pickaxeCoords ==  roomControl.formattedCoords && inventory[1] != "Pickaxe" && canGetPickaxe){
+                Debug.Log("Have Pickaxe");
+                inventory[1] = "Pickaxe";
+                canGetPickaxe = false;
+                hasPickaxe = true;
             }
         }
 
@@ -84,6 +105,14 @@ public class itemController : MonoBehaviour
                     currentlySelectedItem = "";
                     canGetLantern = true;
                     hasLantern = false;
+                }
+
+                else if(currentlySelectedItem == "Pickaxe"){
+                    pickaxeCoords = roomControl.formattedCoords;
+                    inventory[1] = "";
+                    currentlySelectedItem = "";
+                    canGetPickaxe = true;
+                    hasPickaxe = false;
                 }
 
             }
