@@ -15,14 +15,15 @@ public class roomController : MonoBehaviour
 
     [Tooltip("The features of the room")] public Dictionary<string, string> roomFeatures = new Dictionary<string, string>()
     {
-        {"0, 0", "Starting room"},
-        {"1, 0", "Entrance to cave"},
-        {"1, 1", "Side of the house"},
-        {"1, 2", "Slightly ajar window"},
-        {"1, 3", "Living Room"},
-        {"2, 0", "Boulder"},
-        {"0, 1", "Door to house"},
-        {"-1, 0", "Forest"},
+        {"0, 0", "Starting room"}, // 0
+        {"1, 0", "Entrance to cave"}, // 1
+        {"1, 1", "Side of the house"}, // 2
+        {"1, 2", "Slightly ajar window"}, // 3
+        {"1, 3", "Living Room"}, // 4
+        {"2, 0", "Boulder"}, // 5
+        {"3, 0", "Thing in cave"}, // 6
+        {"0, 1", "Door to house"}, // 7
+        {"-1, 0", "Forest"}, // 8
         
 
     };

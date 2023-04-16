@@ -25,9 +25,11 @@ public class coordinateController : MonoBehaviour
     [Tooltip("Stores the players Y position")] public int yPos;
 
 
+    
+
     roomController roomControl;
     itemController itemControl;
-
+    boulderDestroy boulderBreak;
 
     
 
@@ -39,6 +41,8 @@ public class coordinateController : MonoBehaviour
     {
         roomControl = GetComponent<roomController>();
         itemControl = GetComponent<itemController>();
+        boulderBreak = GetComponent<boulderDestroy>();
+        
     }
 
     // Update is called once per frame
@@ -93,8 +97,13 @@ public class coordinateController : MonoBehaviour
         Debug.Log(coordsIfMove);
 
         if(roomControl.roomFeatures.ContainsKey(coordsIfMove)){
+
+
+
             if(isYP){
+                
                 yPos += 1;
+                
             }
 
             else if(isYN){
@@ -102,7 +111,13 @@ public class coordinateController : MonoBehaviour
             }
 
             else if(isXP){
-                xPos += 1;
+                if(roomControl.formattedCoords == "2, 0" && !boulderBreak.boulderHasBeenBroken){
+                    Debug.Log("You havent destroyed the boulder yet!");
+                }
+                
+                else{
+                    xPos += 1;
+                }
             }
 
             else if(isXN){
