@@ -53,15 +53,25 @@ public class itemController : MonoBehaviour
     
     
 
+    [HideInInspector] public bool hasJustGotLantern;
+    [HideInInspector] public bool hasJustGotPickaxe;
 
+
+    [Header("Script Holder")]
 
     public GameObject invControlHolder;
+    public GameObject actionTextControlHolder;
+
+
+
+    actionTextController actionTextControl;
     inventoryGUIController invControl;
     roomController roomControl;
 
     // Start is called before the first frame update
     void Start()
     {
+        actionTextControl = actionTextControlHolder.GetComponent<actionTextController>();
         invControl = invControlHolder.GetComponent<inventoryGUIController>();
         roomControl = GetComponent<roomController>();
         lanternCoords = "1, 0";
@@ -99,6 +109,7 @@ public class itemController : MonoBehaviour
                 inventory[0] = "Lantern";
                 canGetLantern = false;
                 hasLantern = true;
+                actionTextControl.actionText.text = "You have just gotten the lantern";
             }
 
             if(pickaxeCoords ==  roomControl.formattedCoords && inventory[1] != "Pickaxe" && canGetPickaxe){
@@ -106,6 +117,10 @@ public class itemController : MonoBehaviour
                 inventory[1] = "Pickaxe";
                 canGetPickaxe = false;
                 hasPickaxe = true;
+                actionTextControl.actionText.text = "You have just gotten the pickaxe";
+
+                
+                
             }
         }
 

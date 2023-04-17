@@ -24,9 +24,13 @@ public class coordinateController : MonoBehaviour
     [Tooltip("Stores the players X position")] public int xPos;
     [Tooltip("Stores the players Y position")] public int yPos;
 
+    [Header("Script Holders")]
+
+    public GameObject actionTextControlHolder;
+
 
     
-
+    actionTextController actionTextControl;
     roomController roomControl;
     itemController itemControl;
     boulderDestroy boulderBreak;
@@ -34,11 +38,14 @@ public class coordinateController : MonoBehaviour
     
 
 
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
+        
+        actionTextControl = actionTextControlHolder.GetComponent<actionTextController>();
         roomControl = GetComponent<roomController>();
         itemControl = GetComponent<itemController>();
         boulderBreak = GetComponent<boulderDestroy>();
@@ -56,6 +63,7 @@ public class coordinateController : MonoBehaviour
            
             Debug.Log($"X position : {xPos} || Y position : {yPos} || Current Room = {roomControl.currentRoom}");
             canMoveCheck(true, false, false, false, $"{xPos}, {yPos + 1}");
+            
 
 
         }
@@ -64,7 +72,8 @@ public class coordinateController : MonoBehaviour
            
             Debug.Log($"X position : {xPos} || Y position : {yPos} || Current Room = {roomControl.currentRoom}");
             canMoveCheck(false, true, false, false, $"{xPos}, {yPos - 1}");
- 
+            
+
 
 
         }
@@ -73,6 +82,7 @@ public class coordinateController : MonoBehaviour
            
             Debug.Log($"X position : {xPos} || Y position : {yPos} || Current Room = {roomControl.currentRoom}");
             canMoveCheck(false, false, true, false, $"{xPos + 1}, {yPos}");
+           
 
 
             
@@ -82,6 +92,7 @@ public class coordinateController : MonoBehaviour
            
             Debug.Log($"X position : {xPos} || Y position : {yPos} || Current Room = {roomControl.currentRoom}");
             canMoveCheck(false, false, false, true, $"{xPos - 1}, {yPos}");
+            
 
 
 
@@ -89,10 +100,14 @@ public class coordinateController : MonoBehaviour
     }
 
 
+    public void LateUpdate() {
+        
+        
+        
+    }
 
 
-
-    void canMoveCheck(bool isYP, bool isYN, bool isXP, bool isXN, string coordsIfMove){ // Parsed bools to check what the previous change in coordinate was e.g. isYP checks to see if the previous movement was positive on the y
+    public void canMoveCheck(bool isYP, bool isYN, bool isXP, bool isXN, string coordsIfMove){ // Parsed bools to check what the previous change in coordinate was e.g. isYP checks to see if the previous movement was positive on the y
 
         Debug.Log(coordsIfMove);
 
@@ -104,10 +119,12 @@ public class coordinateController : MonoBehaviour
                 
                 yPos += 1;
                 
+
             }
 
             else if(isYN){
                 yPos -= 1;
+                
             }
 
             else if(isXP){
@@ -117,14 +134,25 @@ public class coordinateController : MonoBehaviour
                 
                 else{
                     xPos += 1;
+                    
+    
                 }
             }
 
             else if(isXN){
                 xPos -= 1;
+                
+
+
+                
             }
 
+            
+            roomControl.formattedCoords = $"{xPos}, {yPos}";
             roomControl.currentRoom = roomControl.roomFeatures[roomControl.formattedCoords];
+            actionTextControl.updateActionText(roomControl.currentRoom);
+            
+            
             
         }
 
