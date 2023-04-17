@@ -132,6 +132,7 @@ public class itemController : MonoBehaviour
                     currentlySelectedItem = "";
                     canGetLantern = true;
                     hasLantern = false;
+                    actionTextControl.actionText.text = "You have just dropped your lantern";
                 }
 
                 else if(currentlySelectedItem == "Pickaxe"){
@@ -140,6 +141,8 @@ public class itemController : MonoBehaviour
                     currentlySelectedItem = "";
                     canGetPickaxe = true;
                     hasPickaxe = false;
+                    actionTextControl.actionText.text = "You have just dropped your pickaxe";
+
                 }
 
             }

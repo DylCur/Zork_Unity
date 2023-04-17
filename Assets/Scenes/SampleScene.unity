@@ -1831,6 +1831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e235878f86148c45b907ba89b82a858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionTextControlHolder: {fileID: 187228515}
   breakKey: 98
   boulderHasBeenBroken: 0
 --- !u!1 &2050135248

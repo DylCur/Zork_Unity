@@ -5,6 +5,10 @@ using UnityEngine;
 public class boulderDestroy : MonoBehaviour
 {
 
+    [Header("Script Holders")]
+
+    public GameObject actionTextControlHolder;
+
 
     [Header("Keycodes")]
 
@@ -15,10 +19,12 @@ public class boulderDestroy : MonoBehaviour
     coordinateController coordsControl;
     roomController roomControl;
     itemController itemControl;
+    actionTextController actionControl;
     
     // Start is called before the first frame update
     void Start()
     {
+        actionControl = actionTextControlHolder.GetComponent<actionTextController>();
         itemControl = GetComponent<itemController>();
         roomControl = GetComponent<roomController>();
         coordsControl = GetComponent<coordinateController>();
@@ -31,7 +37,7 @@ public class boulderDestroy : MonoBehaviour
           
             boulderHasBeenBroken = true;
             roomControl.roomFeatures["2, 0"] = "Boulder Shards";
-            
+            actionControl.updateActionText("Boulder Broken");
             
         }
     }

@@ -25,6 +25,7 @@ public class actionTextController : MonoBehaviour
     coordinateController coordinateControl;
 
 
+    string eventStr;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,7 @@ public class actionTextController : MonoBehaviour
 
         
         if(itemControl.hasJustGotLantern){
-            actionText.text = "You have just picked up a Lantern";
+            
             itemControl.hasJustGotLantern = false;
         }
 
@@ -61,6 +62,7 @@ public class actionTextController : MonoBehaviour
         }
         
 
+           
 
         if(variableToInput == roomControl.currentRoom){
 
@@ -69,14 +71,38 @@ public class actionTextController : MonoBehaviour
 
             if(strOfFirstLetter == "a" || strOfFirstLetter == "e" || strOfFirstLetter == "i" || strOfFirstLetter == "o" || strOfFirstLetter == "u")
             {
-                actionText.text = $"You have moved into an {variableToInput}";
+                eventStr =  $"You have moved into an {variableToInput}";
             }
 
             else{
-                actionText.text = $"You have moved into a {variableToInput}"; // Gramma checking
+                eventStr = $"You have moved into a {variableToInput}"; // Gramma checking
 
             }
 
+            if(roomControl.formattedCoords == itemControl.lanternCoords || roomControl.formattedCoords == itemControl.pickaxeCoords)
+            {
+                if(roomControl.formattedCoords == itemControl.lanternCoords && roomControl.formattedCoords != itemControl.pickaxeCoords){
+                    actionText.text = $"{eventStr}. There is a lantern on the floor!";
+                }
+
+                else if(roomControl.formattedCoords == itemControl.pickaxeCoords && roomControl.formattedCoords != itemControl.lanternCoords){
+                    actionText.text = $"{eventStr}. There is a pickaxe on the floor!";
+                }
+
+                else if(roomControl.formattedCoords == itemControl.lanternCoords && roomControl.formattedCoords == itemControl.pickaxeCoords){
+                    actionText.text = $"{eventStr}. There is a lantern and a pickaxe on the floor!";
+                }
+            }
+
+            else{
+                actionText.text = eventStr;
+            }
+
         }
+    
+        if(variableToInput == "Boulder Broken"){
+            actionText.text = "You hit the bolder. Mysteriously, it bursts into tiny sand sized shards";
+        }
+    
     }
 }
