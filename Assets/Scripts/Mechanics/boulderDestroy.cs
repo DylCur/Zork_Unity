@@ -15,6 +15,7 @@ public class boulderDestroy : MonoBehaviour
     public KeyCode breakKey = KeyCode.B;
 
     public bool boulderHasBeenBroken;
+    public bool windowHasBeenOpened;
 
     coordinateController coordsControl;
     roomController roomControl;
@@ -33,12 +34,27 @@ public class boulderDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(breakKey) && roomControl.formattedCoords == "2, 0" && itemControl.currentlySelectedItem == "Pickaxe" && !boulderHasBeenBroken){       
+        if(Input.GetKeyDown(breakKey)){       
+
+            if(roomControl.formattedCoords == "2, 0" && itemControl.currentlySelectedItem == "Pickaxe" && !boulderHasBeenBroken){
+                boulderHasBeenBroken = true;
+                roomControl.roomFeatures["2, 0"] = "Boulder Shards";
+                actionControl.updateActionText("Boulder Broken");
+            }
           
-            boulderHasBeenBroken = true;
-            roomControl.roomFeatures["2, 0"] = "Boulder Shards";
-            actionControl.updateActionText("Boulder Broken");
+            if(roomControl.formattedCoords == "1, 2"  && !windowHasBeenOpened){
+                if(itemControl.currentlySelectedItem == "Pickaxe"){
+                    windowHasBeenOpened = true;
+                    roomControl.roomFeatures["1, 2"] = "Open window";
+                    actionControl.updateActionText("Open Window");
+                }
+
+                else{
+                    actionControl.updateActionText("Fail Open Window");
+                }
+            }
             
         }
+        
     }
 }

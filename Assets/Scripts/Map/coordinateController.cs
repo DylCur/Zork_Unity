@@ -140,7 +140,14 @@ public class coordinateController : MonoBehaviour
             }
 
             else if(isXN){
-                xPos -= 1;
+                if(roomControl.formattedCoords == "1, 2" && !boulderBreak.windowHasBeenOpened){
+                    actionTextControl.actionText.text = "You are yet to open the window";
+                }
+
+                else{
+                    xPos -= 1;
+                }
+
                 
 
 

@@ -19,14 +19,15 @@ public class roomController : MonoBehaviour
         {"1, 0", "Entrance to a cave"}, // 1
         {"1, 1", "Side of a house"}, // 2
         {"1, 2", "Slightly ajar window"}, // 3
-        {"1, 3", "Living Room of a house"}, // 4
-        {"2, 0", "Path blocked by a boulder"}, // 5
-        {"3, 0", "Vast cavern with tunnels going in every direction"}, // 6
-        {"3, 1", "Locked trapdoor"},
-        {"3, -1", "Town"},
-        {"4, 0", "Cave wall (Theres seemingly no way forewards)"},
-        {"0, 1", "Front door of a house"}, // 7
-        {"-1, 0", "Forest"}, // 8
+        {"0, 2", "Living room"}, // 4
+        {"1, 3", "Strange tree stump"}, // 5
+        {"2, 0", "Path blocked by a boulder"}, // 6
+        {"3, 0", "Vast cavern with tunnels going in almost every direction"}, // 7
+        {"3, 1", "Locked trapdoor"}, // 8
+        {"3, -1", "Town"}, // 9
+        {"4, 0", "Cave wall (Theres seemingly no way forewards)"}, // 10
+        {"0, 1", "Front door of a house"}, // 11
+        {"-1, 0", "Forest"}, // 12
         
 
     };

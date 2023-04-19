@@ -103,6 +103,21 @@ public class actionTextController : MonoBehaviour
         if(variableToInput == "Boulder Broken"){
             actionText.text = "You hit the bolder. Mysteriously, it bursts into tiny sand sized shards";
         }
+
+        if(variableToInput == "Open Window"){
+            actionText.text = "With an aggressive swing of your pickaxe, the window falls off of its hinges with a triumphunt thud";
+        }
+
+        else if(variableToInput == "Fail Open Window"){
+            if(itemControl.currentlySelectedItem == ""){
+                actionText.text = $"This window looks quite sturdy, you're going to need something more powerful, your fists are not strong enough";
+            }
+
+            else{
+                actionText.text = $"This window looks quite sturdy, you're going to need something more powerful, a {itemControl.currentlySelectedItem} will not work";
+            }
+
+        }
     
     }
 }

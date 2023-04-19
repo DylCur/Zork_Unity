@@ -77,6 +77,7 @@ public class itemController : MonoBehaviour
         lanternCoords = "1, 0";
         pickaxeCoords = "1, 3";
         
+        
     }
 
     // Update is called once per frame

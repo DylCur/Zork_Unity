@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Play
+  - Settings
+  - Quit
+  - Screen1
+  - Screen2
   layers:
   - Default
   - TransparentFX
