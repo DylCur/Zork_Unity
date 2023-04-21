@@ -30,8 +30,5 @@ public class textManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        currentRoomText.text = $"Current room: {roomControl.currentRoom}";
-    }
+    
 }

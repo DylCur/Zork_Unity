@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class boulderDestroy : MonoBehaviour
 {
+    [Header("Audio")]
+    public AudioClip boulderBreakSFX;
+    public AudioClip windowOpenSfx;
+    private AudioSource audioSource;
+    public GameObject audioSourceHolder;
+    
+
 
     [Header("Script Holders")]
 
@@ -25,6 +32,7 @@ public class boulderDestroy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = audioSourceHolder.GetComponent<AudioSource>();
         actionControl = actionTextControlHolder.GetComponent<actionTextController>();
         itemControl = GetComponent<itemController>();
         roomControl = GetComponent<roomController>();
@@ -39,6 +47,7 @@ public class boulderDestroy : MonoBehaviour
             if(roomControl.formattedCoords == "2, 0" && itemControl.currentlySelectedItem == "Pickaxe" && !boulderHasBeenBroken){
                 boulderHasBeenBroken = true;
                 roomControl.roomFeatures["2, 0"] = "Boulder Shards";
+                audioSource.PlayOneShot(boulderBreakSFX);
                 actionControl.updateActionText("Boulder Broken");
             }
           
@@ -46,6 +55,7 @@ public class boulderDestroy : MonoBehaviour
                 if(itemControl.currentlySelectedItem == "Pickaxe"){
                     windowHasBeenOpened = true;
                     roomControl.roomFeatures["1, 2"] = "Open window";
+                    audioSource.PlayOneShot(windowOpenSfx);
                     actionControl.updateActionText("Open Window");
                 }
 
