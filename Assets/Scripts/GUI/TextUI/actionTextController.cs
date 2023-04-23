@@ -51,17 +51,7 @@ public class actionTextController : MonoBehaviour
     {
 
         
-        if(itemControl.hasJustGotLantern){
-            
-            itemControl.hasJustGotLantern = false;
-        }
-
-        else if(itemControl.hasJustGotPickaxe){
-            actionText.text = "You have just picked up a Pickaxe";
-            itemControl.hasJustGotPickaxe = false;
-        }
-        
-
+ 
            
 
         if(variableToInput == roomControl.currentRoom){
@@ -81,7 +71,7 @@ public class actionTextController : MonoBehaviour
 
             if(roomControl.formattedCoords == itemControl.lanternCoords || roomControl.formattedCoords == itemControl.pickaxeCoords)
             {
-                if(roomControl.formattedCoords == itemControl.lanternCoords && roomControl.formattedCoords != itemControl.pickaxeCoords){
+                if(roomControl.formattedCoords == itemControl.lanternCoords && roomControl.formattedCoords !=   itemControl.pickaxeCoords){
                     actionText.text = $"{eventStr}. There is a lantern on the floor!";
                 }
 

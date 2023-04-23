@@ -84,6 +84,14 @@ public class itemController : MonoBehaviour
     void Update()
     {
 
+        if(inventory[0] == "Lantern"){
+            lanternCoords = "";
+        }
+
+        if(inventory[1] == "Pickaxe"){
+            pickaxeCoords = "";
+        }
+
         if(inventory[0] == "Lantern" && Input.GetKeyDown(oneKey)){
             if(currentlySelectedItem == "Lantern"){
                 currentlySelectedItem = "";

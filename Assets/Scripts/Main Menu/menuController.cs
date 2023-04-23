@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 public class menuController : MonoBehaviour
 {
     
+    public Animator OneTwoAnimator;
+    public GameObject OneTwoAnimatorHolder;
+
+    public Animator twoOneAnimator;
+    public GameObject twoOneAnimatorHolder;
+
     public int currentScreen = 1;
     public GameObject[] screen1Objects;
     public GameObject[] screen2Objects;
@@ -16,12 +22,17 @@ public class menuController : MonoBehaviour
 
     public void Start() {
 
+        
+        OneTwoAnimator = OneTwoAnimatorHolder.GetComponent<Animator>();
+        OneTwoAnimatorHolder.GetComponent<Animator>().enabled = false;
+        twoOneAnimator = twoOneAnimatorHolder.GetComponent<Animator>();
+        twoOneAnimatorHolder.GetComponent<Animator>().enabled = false;
+
+
         screen1Objects = GameObject.FindGameObjectsWithTag("Screen1");
         screen2Objects = GameObject.FindGameObjectsWithTag("Screen2");
 
-        foreach (GameObject j in screen2Objects){
-            j.SetActive(false); // Disable screen 2
-        }
+        
     }   
 
 
@@ -35,18 +46,33 @@ public class menuController : MonoBehaviour
             Debug.Log("Current screen is 1");
 
             if(screenToSwitch == 2){
+                    
+                    screenToSwitch = 3;
+
+
+                    Vector3 screen1Position = new Vector3(1227.213f, 280.4594f, -32.2679f);
+
+                    OneTwoAnimatorHolder.GetComponent<Animator>().enabled = true;
+                    twoOneAnimatorHolder.GetComponent<Animator>().enabled = true;
+
+                    OneTwoAnimator.Play("screen1To2");
+                    twoOneAnimator.Play("screen2To1");
+
+
 
                     currentScreen = 2;
-                    Debug.Log("Screen to switch = 2");
+                    Debug.Log("Animation attempted");
 
-
-                    foreach (GameObject i in screen1Objects){
-                        i.SetActive(false); // Disable screen 1
+                    if(OneTwoAnimatorHolder.transform.position == screen1Position){
+                        OneTwoAnimatorHolder.GetComponent<Animator>().enabled = false;
+                        twoOneAnimatorHolder.GetComponent<Animator>().enabled = false;
                     }
 
-                    foreach (GameObject j in screen2Objects){
-                        j.SetActive(true); // Enable screen 2
-                    }
+            
+
+                    
+
+                    
                 }
            
            
@@ -55,14 +81,30 @@ public class menuController : MonoBehaviour
         if(currentScreen == 2){
             if(screenToSwitch == 1){
 
-                currentScreen = 1;
-                foreach (GameObject i in screen1Objects){
-                        i.SetActive(true); // Enable Screen 1
-                    }
 
-                    foreach (GameObject j in screen2Objects){
-                        j.SetActive(false); // Disables Screen 1
-                    }
+                screenToSwitch = 3;
+                Vector3 screen1Position = new Vector3(-262.2869f, 280.4594f, -32.2679f);
+
+
+                OneTwoAnimatorHolder.GetComponent<Animator>().enabled = true;
+                twoOneAnimatorHolder.GetComponent<Animator>().enabled = true;
+                currentScreen = 1;
+
+                OneTwoAnimator.Play("screen1To2_Return");
+                twoOneAnimator.Play("screen2To1_Return");
+
+
+                
+
+                
+                if(OneTwoAnimatorHolder.transform.position == screen1Position){
+                    OneTwoAnimatorHolder.GetComponent<Animator>().enabled = false;
+                    twoOneAnimatorHolder.GetComponent<Animator>().enabled = false;
+                }
+
+
+                
+
             }
         }
            

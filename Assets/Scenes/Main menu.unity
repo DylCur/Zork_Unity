@@ -2484,6 +2484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1730827474}
+  - component: {fileID: 1730827477}
   m_Layer: 0
   m_Name: Screen1
   m_TagString: Screen1
@@ -2509,6 +2510,27 @@ Transform:
   m_Father: {fileID: 402359198}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1730827477
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730827473}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5999d702ba414474e92b4f9e2eee8a37, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1800883249
 GameObject:
   m_ObjectHideFlags: 0
@@ -2653,6 +2675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1944901554}
+  - component: {fileID: 1944901555}
   m_Layer: 0
   m_Name: Screen2
   m_TagString: Screen2
@@ -2668,7 +2691,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944901553}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 218.68384, y: 355.31097, z: -30.748854}
+  m_LocalPosition: {x: 2167.6838, y: 355.311, z: -30.74885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2678,6 +2701,27 @@ Transform:
   m_Father: {fileID: 402359198}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1944901555
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944901553}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46430c11da9453b438de84cbf5e80c55, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1974567003
 GameObject:
   m_ObjectHideFlags: 0
@@ -3100,7 +3144,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2056110012}
   - component: {fileID: 2056110011}
-  - component: {fileID: 2056110013}
   m_Layer: 0
   m_Name: MenuMaster
   m_TagString: Untagged
@@ -3120,6 +3163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17635f062e6a49549af63dd14d453b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OneTwoAnimator: {fileID: 0}
+  OneTwoAnimatorHolder: {fileID: 1730827473}
+  twoOneAnimator: {fileID: 0}
+  twoOneAnimatorHolder: {fileID: 1944901553}
   currentScreen: 1
   screen1Objects: []
   screen2Objects: []
@@ -3138,15 +3185,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2056110013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056110010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e12eeb786f8c9341b03d6180b6a923e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
